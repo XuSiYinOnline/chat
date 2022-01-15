@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<title>涂鸦聊天</title>
+<script type="text/javascript" src="common/js/jquery.min.js"></script>
+<script type="text/javascript" src="common/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="common/js/jquery.chat.js"></script>
+<script type="text/javascript" src="common/js/color.js"></script>
+<link href="common/css/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<script src="common/js/Crazy.js"></script>
+<script type="text/javascript">/* 定义hello.css */
+var hicss="common/css/hello.css";
+/* 定义歌曲数组 */
+var CrazyMusic=["music/BGM.mp3","music/Ethereal.mp3","music/Children.mp3"];
+/* 监听到ESC或鼠标双击动作，将停止所有效果 */
+function KeyMonitor() { 
+    if (event.keyCode == 27) {stopCrazy()}; 
+ } 
+$(document).bind("dblclick",stopCrazy);
+$(document).bind("onkeydown ",KeyMonitor);
+</script>
+<div id="container">
+  <div id="logo" class="pc">
+    <div id="lg_left">涂鸦聊天</div><!-- 房间名 -->
+  </div>
+  <div id="log" data-lasthash="" data-slide="on"><ul></ul></div>
+</div>
+<script type="text/javascript">
+/*
+ * 设置
+ */
+   $(function(){
+      $('body').jqueryChat({
+        'room_id'    : '001', //房间ID
+        'reload'     : 5000,         //更新秒数 default:10000[10秒]
+        'readlog'    : true,          //更新HTML(初次见面)是否显示日志
+        'delcookie'  : false,         //更新HTML时是否删除cookie中记录的名字
+        'bt_name'    : '输入你的名字', //进入时按钮名称
+        'bt_chat'    : '发送',  //输入按钮的名称
+        'mes_logout' : '确认退出?', //退出警报的信息
+        'err_name'   : '请写下你的名字!',      //未填写名字时错误提示
+        'err_upload' : '上传失败!', //上传文件失败时的信息
+        'err_write'  : '写下你想说的,开始我们的对话!',  //聊天内容未填写时的错误信息
+        'err_wnig'   : '发生未知错误!',     //不清楚时的信息
+        'log_login'  : true,           //登录时是否记录管理员信息
+        'login'      : '  欢迎您的到来!',  //进入有效时.名字后面的信息
+        'log_logof'  : true,           //注销时是否记录管理员信息
+        'logout'     : '  好像离开了!',//退出有效时.名字后面的信息
+        'flaggmap'   : true, //是否获取地理位置功能
+        'gmap'       : '发送信息内容时你的地理位置信息可能会被对方知道!', //注意事项
+        'background' : '#669999', //背景颜色
+        'fontcolor'  : '#FFFFFF', //字体颜色
+        'headerbg'   : '#393939', //页眉背景色
+      });
+   });
+</script>
+</body>
+</html>
